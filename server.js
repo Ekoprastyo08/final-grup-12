@@ -3,8 +3,6 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import sequelize from "./config/sequelize.js";
 import { startSequelize } from './utils/startSequelize.js';
-import './models/videos.js';
-import videosRouter from './routes/videos.js';
 import ulasanRouter from './routes/ulasan.js';
 
 dotenv.config();
@@ -23,9 +21,8 @@ app.use(express.static("public"));
 router.use("/api/ulasan", ulasanRouter);
 app.use(router);
 
+app.use("/ulasan", express.static("public/ulasan.html"));
 
-router.use("/api/videos", videosRouter);
-app.use(router);
 
 startSequelize(sequelize);
 
