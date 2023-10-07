@@ -33,7 +33,7 @@ Tulis disini yaa...
             console.log({ formData, nama: formData.get("nama"), isi :formData.get('isi') });
 
             event.preventDefault();
-            fetch("http://localhost:3000/api/ulasan", {
+            fetch("/api/ulasan", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
