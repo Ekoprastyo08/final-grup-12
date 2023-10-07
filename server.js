@@ -1,6 +1,7 @@
 import express, { Router } from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import sequelize from "./config/sequelize.js";
 import { startSequelize } from './utils/startSequelize.js';
 import ulasanRouter from './routes/ulasan.js';
@@ -14,6 +15,8 @@ const port = process.env.PORT;
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.raw());
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use(express.static("public"));
 
